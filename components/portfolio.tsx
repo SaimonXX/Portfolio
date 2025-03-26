@@ -130,7 +130,94 @@ export default function Component() {
     setShowPhoneMenu(false);
   };
 
+  const handleClickCopyToClipboard = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    event.preventDefault()
+    const text = event.currentTarget.textContent || ''
+    navigator.clipboard.writeText(text).then(() => {
+      alert(`Copied "${text}" to clipboard`)
+    })
+  }
   const projects = [
+    {
+      title: language === "en" ? "Jewelry" : "Joyería",
+      description: language === "en" 
+      ? <>
+          "This web application has two interfaces:
+          <br />
+          One that allows the administrator to manage multiple sellers, their customers, and all orders with their statuses. The seller interface allows them to manage only their own customers and their orders. The system has a dedicated mobile app for customers, where they can log in with the account provided by the seller and place their orders."
+          <br />
+          <br />
+          <strong>Test credentials</strong><br />
+          Admin<br />
+          Email: <a className="hover:text-blue-500 underline"  href="#" onClick={handleClickCopyToClipboard}>admin@gmail.com</a><br />
+          Password: <a className="hover:text-blue-500 underline"  href="#" onClick={handleClickCopyToClipboard}>admin</a><br />
+          <br />
+          Seller<br />
+          Email: <a className="hover:text-blue-500 underline"  href="#" onClick={handleClickCopyToClipboard}>vendedor1@gmail.com</a><br />
+          Password: <a className="hover:text-blue-500 underline"  href="#" onClick={handleClickCopyToClipboard}>vendedor</a><br />
+        </>
+      : <>
+          "Esta aplicación web cuenta con dos interfaces:
+          <br />
+          Una que permite al administrador gestionar varios vendedores, sus clientes y todos los pedidos con sus estados. 
+          La interfaz del vendedor permite gestionar únicamente a sus propios clientes y sus pedidos. 
+          El sistema cuenta con una aplicación móvil dedicada para clientes, donde pueden iniciar sesión con la cuenta proporcionada por el vendedor y realizar sus pedidos."
+          <br />
+          <br />
+          <strong>Credenciales de prueba</strong><br />
+        
+          Administrador<br />
+          Email: 
+          <a
+            className="hover:text-blue-500 underline cursor-pointer"
+            href="#"
+            onClick={handleClickCopyToClipboard}
+          >
+            admin@gmail.com
+          </a>
+          <br />
+        
+          Contraseña: 
+          <a
+            className="hover:text-blue-500 underline cursor-pointer"
+            href="#"
+            onClick={handleClickCopyToClipboard}
+          >
+            admin
+          </a>
+          <br />
+          <br />
+        
+          Vendedor<br />
+          Email: 
+          <a
+            className="hover:text-blue-500 underline cursor-pointer"
+            href="#"
+            onClick={handleClickCopyToClipboard}
+          >
+            vendedor1@gmail.com
+          </a>
+          <br />
+        
+          Contraseña: 
+          <a
+            className="hover:text-blue-500 underline cursor-pointer"
+            href="#"
+            onClick={handleClickCopyToClipboard}
+          >
+            vendedor1
+          </a>
+          <br />
+        </>,
+      technologies: ["PostgreSQL", "Supabase", "Node.js", "React", "React Native", "Next.js", "GitHub", "Vercel"],
+      images: [
+        "/projects/joyeria/img1.png",
+        "/projects/joyeria/img2.png",
+        "/projects/joyeria/img3.png",
+      ],
+      link: "https://web-joyeria.vercel.app/",
+      large: true
+    },
     {
       title: "EcoRail",
       description:
@@ -151,6 +238,7 @@ export default function Component() {
         "/projects/ecoRail/img3.png",
       ],
       link: "#",
+      large: false
     },
     {
       title: "Portfolio",
@@ -174,18 +262,7 @@ export default function Component() {
         "/projects/portfolio/img3.png",
       ],
       link: "#",
-    },
-    {
-      title: language === "en" ? "Project 3" : "Proyecto 3",
-      description: language === "en" ? "..." : "...",
-      technologies: ["..."],
-      images: [
-        "/unvalible.png",
-        // "/projects/./img1.png",
-        // "/projects/./img2.png",
-        // "/projects/./img3.png",
-      ],
-      link: "#",
+      large: false
     },
     {
       title: language === "en" ? "Project 4" : "Proyecto 4",
@@ -581,7 +658,9 @@ export default function Component() {
                     onComplete={() => setHomeAnimationCompleted(true)}
                   />
                   <TypewriterEffect
-                    text="Simon Hernandez"
+                    text={language === "en"
+                      ? "Saimon X"
+                      : "Simon X"}
                     className={`relative ${
                       isDarkMode ? "text-white" : "text-black"
                     }`}
@@ -601,7 +680,9 @@ export default function Component() {
                       isDarkMode ? "text-white" : "text-black"
                     }`}
                   >
-                    Simon Hernandez
+                    {language === "en"
+                      ? "Saimon X"
+                      : "Simon X"}
                   </span>
                 </>
               )}
@@ -633,7 +714,7 @@ export default function Component() {
             </div>
             <div className="flex justify-center space-x-6 mb-8">
               <a
-                href="mailto:simon2005hernandez@gmail.com"
+                href="mailto:simonxpriv@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`transition-colors duration-500 animate-blink ${
@@ -645,7 +726,7 @@ export default function Component() {
                 <Mail className="h-8 w-8" />
               </a>
               <a
-                href="https://linkedin.com/in/simon-hernandez-b6babb307/"
+                href="https://www.linkedin.com/in/saimon-x/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`transition-colors duration-500 animate-blink ${
@@ -657,7 +738,7 @@ export default function Component() {
                 <Linkedin className="h-8 w-8" />
               </a>
               <a
-                href="https://github.com/SaimonAHG"
+                href="https://github.com/SaimonXX"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`transition-colors duration-500 animate-blink ${
@@ -737,7 +818,7 @@ export default function Component() {
                 <ChevronDown className="h-6 w-6 animate-bounce" />
               </Button>
               <Button
-                onClick={() => window.open("/path-to-your-cv.pdf", "_blank")}
+                onClick={() => window.open(language === 'en' ? "/cv/simon-cv-en.pdf" : "/cv/simon-cv-es.pdf", "_blank")}
                 className={`transition-all duration-500 animate-blink ${
                   isDarkMode
                     ? "bg-green-700 hover:bg-green-600"
@@ -868,13 +949,15 @@ export default function Component() {
             <h2 className="text-4xl font-bold mb-8 text-center text-blue-500">
               {language === "en" ? "Experience" : "Experiencia"}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
               {projects.map((project, index) => (
                 <motion.div
                   key={index}
                   className={`p-4 rounded-lg hover:text-green-200 ${
                     isDarkMode ? "bg-gray-800" : "bg-white shadow-md"
-                  } group`}
+                  } group ${
+                    project.large ? "md:col-span-2 lg:col-span-2" : "col-span-1"
+                  }`}
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -884,59 +967,65 @@ export default function Component() {
                     {project.title}
                   </h3>
                   <p className="mb-2">{project.description}</p>
+
                   <div className="flex flex-wrap gap-2 my-3">
                     {project.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
                         className={`px-2 py-1 rounded-full text-sm ${
-                          isDarkMode
-                            ? "bg-gray-700 text-white"
-                            : "bg-gray-200 text-gray-800"
+                          isDarkMode ? "bg-gray-700 text-white" : "bg-gray-200 text-gray-800"
                         }`}
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
+
+                  {/* Imagen con zoom y cambio de imágenes */}
                   <div className="relative group">
                     <Image
                       src={project.images[currentImageIndices[index]]}
-                      alt={`${
-                        language === "en" ? "Preview of" : "Vista previa de"
-                      } ${project.title}`}
+                      alt={`${language === "en" ? "Preview of" : "Vista previa de"} ${project.title}`}
                       width={300}
                       height={200}
                       className="w-full h-40 object-cover rounded-md transition-transform duration-300 group-hover:scale-105"
                     />
+
+                    {/* Botón de Zoom */}
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <Button
                         variant="secondary"
                         size="icon"
                         onClick={() => {
-                          setZoomedImage(
-                            project.images[currentImageIndices[index]]
-                          );
+                          setZoomedImage(project.images[currentImageIndices[index]]);
                           setZoomedProjectIndex(index);
                         }}
+                        aria-label="Ampliar imagen"
                         className="bg-black bg-opacity-50 text-white hover:bg-opacity-75 hover:text-black"
                       >
                         <ZoomIn className="h-6 w-6" />
                       </Button>
                     </div>
+
+                    {/* Botón Imagen Anterior */}
                     <Button
                       variant="ghost"
                       size="icon"
-                      className={`absolute bg-black bg-opacity-50 right-60 top-1/2 transform -translate-y-1/2 ${
+                      aria-label="Imagen anterior"
+                      className={`absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 ${
                         isDarkMode ? "text-white" : "text-black"
                       } opacity-60 group-hover:opacity-100 transition-opacity duration-300`}
                       onClick={() => changeProjectImage(index, "prev")}
                     >
                       <ChevronLeft className="h-6 w-6" />
                     </Button>
+
+                    {/* Botón Imagen Siguiente */}
                     <Button
                       variant="ghost"
                       size="icon"
-                      className={`absolute bg-black bg-opacity-50 left-60 top-1/2 transform -translate-y-1/2 ${
+                      aria-label="Imagen siguiente"
+                      className={`absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 ${
                         isDarkMode ? "text-white" : "text-black"
                       } opacity-60 group-hover:opacity-100 transition-opacity duration-300`}
                       onClick={() => changeProjectImage(index, "next")}
@@ -944,13 +1033,15 @@ export default function Component() {
                       <ChevronRight className="h-6 w-6" />
                     </Button>
                   </div>
+
+                  {/* Enlace al Proyecto */}
                   <a
-                    // href= {project.link}
-                    // target="_blank"
-                    className="inline-flex text-base mt-5 font-semibold mb-1 text-green-400 hover:underline hover:text-blue-500 hover:text-lg transition-all duration-200"
+                    href={project.link}
+                    target="_blank"
+                    className="inline-flex text-base mt-5 font-semibold mb-1 text-green-400 hover:underline hover:text-blue-500 hover:scale-105 transition-transform duration-200"
                   >
-                    {language == "en" ? "Visit project" : "Abrir proyecto"}{" "}
-                    <Link className="ml-2"></Link>
+                    {language === "en" ? "Visit project" : "Abrir proyecto"}
+                    <Link className="ml-2" />
                   </a>
                 </motion.div>
               ))}
@@ -989,10 +1080,10 @@ export default function Component() {
                   } transition-colors duration-500`}
                 />
                 <a
-                  href="mailto:simon2005hernandez@gmail.com"
+                  href="mailto:simonxpriv@gmail.com"
                   className="text-sm text-green-500 hover:underline"
                 >
-                  simon2005hernandez@gmail.com
+                  simonxpriv@gmail.com
                 </a>
               </motion.div>
               <motion.div
@@ -1007,7 +1098,7 @@ export default function Component() {
                   } transition-colors duration-500`}
                 />
                 <a
-                  href="https://linkedin.com/in/simon-hernandez-b6babb307/"
+                  href="https://linkedin.com/in/saimon-x"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-green-500 hover:underline"
