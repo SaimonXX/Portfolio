@@ -142,26 +142,24 @@ export default function Component() {
       title: language === "en" ? "Jewelry" : "Joyería",
       description: language === "en" 
       ? <>
-          "This web application has two interfaces:
+          {'"This web application has two interfaces:'}
           <br />
-          One that allows the administrator to manage multiple sellers, their customers, and all orders with their statuses. The seller interface allows them to manage only their own customers and their orders. The system has a dedicated mobile app for customers, where they can log in with the account provided by the seller and place their orders."
+          {'One that allows the administrator to manage multiple sellers, their customers, and all orders with their statuses. The seller interface allows them to manage only their own customers and their orders. The system has a dedicated mobile app for customers, where they can log in with the account provided by the seller and place their orders."'}
           <br />
           <br />
           <strong>Test credentials</strong><br />
           Admin<br />
-          Email: <a className="hover:text-blue-500 underline"  href="#" onClick={handleClickCopyToClipboard}>admin@gmail.com</a><br />
-          Password: <a className="hover:text-blue-500 underline"  href="#" onClick={handleClickCopyToClipboard}>admin</a><br />
+          Email: <a className="ml-1 hover:text-blue-500 underline"  href="#" onClick={handleClickCopyToClipboard}>admin@gmail.com</a><br />
+          Password: <a className="ml-1 hover:text-blue-500 underline"  href="#" onClick={handleClickCopyToClipboard}>admin</a><br />
           <br />
           Seller<br />
-          Email: <a className="hover:text-blue-500 underline"  href="#" onClick={handleClickCopyToClipboard}>vendedor1@gmail.com</a><br />
-          Password: <a className="hover:text-blue-500 underline"  href="#" onClick={handleClickCopyToClipboard}>vendedor</a><br />
+          Email: <a className="ml-1 hover:text-blue-500 underline"  href="#" onClick={handleClickCopyToClipboard}>vendedor1@gmail.com</a><br />
+          Password: <a className="ml-1 hover:text-blue-500 underline"  href="#" onClick={handleClickCopyToClipboard}>vendedor</a><br />
         </>
       : <>
-          "Esta aplicación web cuenta con dos interfaces:
+          {'"Esta aplicación web cuenta con dos interfaces:'}
           <br />
-          Una que permite al administrador gestionar varios vendedores, sus clientes y todos los pedidos con sus estados. 
-          La interfaz del vendedor permite gestionar únicamente a sus propios clientes y sus pedidos. 
-          El sistema cuenta con una aplicación móvil dedicada para clientes, donde pueden iniciar sesión con la cuenta proporcionada por el vendedor y realizar sus pedidos."
+          {'Una que permite al administrador gestionar varios vendedores, sus clientes y todos los pedidos con sus estados. La interfaz del vendedor permite gestionar únicamente a sus propios clientes y sus pedidos. El sistema cuenta con una aplicación móvil dedicada para clientes, donde pueden iniciar sesión con la cuenta proporcionada por el vendedor y realizar sus pedidos."'}
           <br />
           <br />
           <strong>Credenciales de prueba</strong><br />
@@ -169,7 +167,7 @@ export default function Component() {
           Administrador<br />
           Email: 
           <a
-            className="hover:text-blue-500 underline cursor-pointer"
+            className="ml-1 hover:text-blue-500 underline cursor-pointer"
             href="#"
             onClick={handleClickCopyToClipboard}
           >
@@ -179,7 +177,7 @@ export default function Component() {
         
           Contraseña: 
           <a
-            className="hover:text-blue-500 underline cursor-pointer"
+            className="ml-1 hover:text-blue-500 underline cursor-pointer"
             href="#"
             onClick={handleClickCopyToClipboard}
           >
@@ -191,7 +189,7 @@ export default function Component() {
           Vendedor<br />
           Email: 
           <a
-            className="hover:text-blue-500 underline cursor-pointer"
+            className="ml-1 hover:text-blue-500 underline cursor-pointer"
             href="#"
             onClick={handleClickCopyToClipboard}
           >
@@ -201,7 +199,7 @@ export default function Component() {
         
           Contraseña: 
           <a
-            className="hover:text-blue-500 underline cursor-pointer"
+            className="ml-1 hover:text-blue-500 underline cursor-pointer"
             href="#"
             onClick={handleClickCopyToClipboard}
           >
@@ -953,7 +951,7 @@ export default function Component() {
               {projects.map((project, index) => (
                 <motion.div
                   key={index}
-                  className={`p-4 rounded-lg hover:text-green-200 ${
+                  className={`p-4 rounded-lg hover:text-green-300 ${
                     isDarkMode ? "bg-gray-800" : "bg-white shadow-md"
                   } group ${
                     project.large ? "md:col-span-2 lg:col-span-2" : "col-span-1"
