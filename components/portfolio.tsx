@@ -1118,12 +1118,12 @@ export default function Component() {
                   } transition-colors duration-500`}
                 />
                 <a
-                  href="https://github.com/SaimonAH"
+                  href="https://github.com/SaimonXX"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-green-500 hover:underline"
                 >
-                  github.com/SaimonAH
+                  github.com/SaimonXX
                 </a>
               </motion.div>
               <motion.div
